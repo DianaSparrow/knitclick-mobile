@@ -134,3 +134,44 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+# React Native
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# Android/IntelliJ
+build/
+.idea
+.gradle
+local.properties
+*.iml
+*.hprof
+
+# iOS
+ios/build/
+ios/Pods/
+ios/Podfile.lock
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+
+# macOS
+.DS_Store
+
+# Watchman
+.watchmanconfig
+
+# Flipper
+Flipper-Folly
