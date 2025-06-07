@@ -1,0 +1,194 @@
+.container {
+  flex: 1;
+  background-color: #f8f4f6;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #daa5ba;
+  margin-top: 60px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.tagline {
+  font-size: 14px;
+  color: #c4949f;
+  margin-bottom: 30px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.add-button {
+  background-color: #daa5ba;
+  padding: 25px 40px;
+  border-radius: 50px;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 300px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(218, 165, 186, 0.3);
+}
+
+.add-button:hover {
+  background-color: #d199b5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(218, 165, 186, 0.4);
+}
+
+.add-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(218, 165, 186, 0.3);
+}
+
+.add-button-text,
+.add-button {
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.counter {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  background-color: #daa5ba;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  transition: transform 0.6s ease;
+  box-shadow: 0 8px 24px rgba(218, 165, 186, 0.3);
+}
+
+.counter.spinning {
+  animation: spin 0.6s ease-in-out;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.count-text {
+  font-size: 48px;
+  font-weight: 700;
+  color: white;
+  user-select: none;
+}
+
+.button-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.secondary-button {
+  flex: 1;
+  background-color: #e8dde0;
+  padding: 18px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  color: #5a4a52;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.secondary-button:hover {
+  background-color: #e0d1d5;
+  transform: translateY(-1px);
+}
+
+.secondary-button:active {
+  transform: translateY(0);
+}
+
+.progress-section {
+  width: 100%;
+  max-width: 300px;
+  padding: 20px;
+  background-color: rgba(218, 165, 186, 0.1);
+  border-radius: 25px;
+  margin-top: auto;
+}
+
+.progress-text {
+  font-size: 14px;
+  color: #5a4a52;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-top: 0;
+}
+
+.progress-bar {
+  height: 12px;
+  background-color: rgba(218, 165, 186, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #daa5ba;
+  border-radius: 20px;
+  transition: width 0.3s ease;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+  
+  .title {
+    font-size: 20px;
+    margin-top: 40px;
+  }
+  
+  .counter {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .count-text {
+    font-size: 40px;
+  }
+  
+  .add-button {
+    font-size: 20px;
+    padding: 20px 30px;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  .add-button:hover,
+  .secondary-button:hover {
+    transform: none;
+  }
+  
+  .add-button:active {
+    background-color: #d199b5;
+  }
+  
+  .secondary-button:active {
+    background-color: #e0d1d5;
+  }
+}
