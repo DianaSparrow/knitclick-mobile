@@ -27,8 +27,8 @@ const KnitClick = () => {
     // Update count
     setCount(prevCount => prevCount + 1);
 
-    // Spin animation - circle spins 360 degrees
-    setRotation(prevRotation => prevRotation + 360);
+    // Spin animation - partial rotation so movement is visible
+    setRotation(prevRotation => prevRotation + (360 / 48));
   };
 
   const decrementCount = () => {
