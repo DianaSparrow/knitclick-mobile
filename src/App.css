@@ -148,33 +148,81 @@ body {
 }
 
 .increment-button {
-  background: linear-gradient(145deg, #b08a93, #8c6873);
   width: 80px;
   height: 80px;
-  border-radius: 40px;
+  border-radius: 50%;
   border: none;
-  color: #ffffff;
-  font-size: 36px;
-  font-weight: bold;
   cursor: pointer;
   transition: all 0.2s;
-  box-shadow: 
-    0 6px 12px rgba(176,138,147, 0.3),
-    inset 0 1px 0 rgba(255,255,255,0.3);
+  position: relative;
+  background:
+    /* Yarn strand lines wrapping around the ball */
+    repeating-conic-gradient(
+      from 0deg,
+      transparent 0deg, transparent 6deg,
+      rgba(255,255,255,0.12) 6deg, rgba(255,255,255,0.12) 8deg
+    ),
+    /* Base gradient for 3D ball shape */
+    radial-gradient(circle at 35% 35%, #c084fc, #9b59b6 40%, #7c3aed 75%, #5b21b6);
+  box-shadow:
+    0 6px 16px rgba(124,58,237,0.4),
+    inset 0 -8px 16px rgba(91,33,182,0.3),
+    inset 0 4px 8px rgba(255,255,255,0.15);
+  color: transparent;
+  font-size: 0;
+  overflow: hidden;
+}
+
+/* Yarn texture wrap lines */
+.increment-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    repeating-linear-gradient(
+      -30deg,
+      transparent,
+      transparent 3px,
+      rgba(255,255,255,0.08) 3px,
+      rgba(255,255,255,0.08) 4.5px
+    ),
+    repeating-linear-gradient(
+      60deg,
+      transparent,
+      transparent 4px,
+      rgba(200,160,252,0.15) 4px,
+      rgba(200,160,252,0.15) 5.5px
+    );
+}
+
+/* Highlight shine */
+.increment-button::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  width: 20px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transform: rotate(-30deg);
 }
 
 .increment-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 
-    0 8px 16px rgba(176,138,147, 0.4),
-    inset 0 1px 0 rgba(255,255,255,0.3);
+  transform: translateY(-2px);
+  box-shadow:
+    0 10px 20px rgba(124,58,237,0.45),
+    inset 0 -8px 16px rgba(91,33,182,0.3),
+    inset 0 4px 8px rgba(255,255,255,0.15);
 }
 
 .increment-button:active {
-  transform: scale(0.95);
-  box-shadow: 
-    0 3px 8px rgba(176,138,147, 0.4),
-    inset 0 1px 0 rgba(255,255,255,0.3);
+  transform: scale(0.93);
+  box-shadow:
+    0 3px 8px rgba(124,58,237,0.4),
+    inset 0 -8px 16px rgba(91,33,182,0.3),
+    inset 0 4px 8px rgba(255,255,255,0.15);
 }
 
 .decrement-button {
