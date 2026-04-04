@@ -128,14 +128,14 @@ body {
 }
 
 .count-display {
-  font-size: 48px;
+  font-size: 72px;
   font-weight: bold;
   color: #7a5c68;
   text-align: center;
   position: relative;
   z-index: 1;
   font-family: 'Courier New', monospace;
-  text-shadow: 0 1px 2px rgba(122,92,104,0.1);
+  text-shadow: 0 2px 4px rgba(122,92,104,0.15);
   transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -283,35 +283,115 @@ body {
 }
 
 .decrement-button {
-  background: linear-gradient(145deg, #ffffff, #f8f7f7);
-  border: 2px solid #b08a93;
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
-  color: #b08a93;
-  font-size: 24px;
-  font-weight: bold;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
   cursor: pointer;
   transition: all 0.2s;
-  box-shadow: 
-    0 6px 12px rgba(176,138,147, 0.2),
-    inset 0 1px 0 rgba(255,255,255,0.5);
+  position: relative;
+  background: radial-gradient(circle at 38% 35%, #f7a8c4, #e8779e 35%, #d4567e 65%, #b83a62);
+  box-shadow:
+    0 6px 16px rgba(216,86,126,0.4),
+    inset 0 -6px 12px rgba(140,30,60,0.25),
+    inset 0 3px 6px rgba(255,255,255,0.1);
+  color: transparent;
+  font-size: 0;
+  overflow: visible;
+}
+
+.decrement-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(
+      -25deg,
+      transparent 0px, transparent 5px,
+      rgba(255,180,200,0.4) 5px, rgba(255,180,200,0.4) 8px,
+      transparent 8px, transparent 10px
+    ),
+    repeating-linear-gradient(
+      55deg,
+      transparent 0px, transparent 7px,
+      rgba(240,140,170,0.35) 7px, rgba(240,140,170,0.35) 10px,
+      transparent 10px, transparent 13px
+    ),
+    repeating-linear-gradient(
+      10deg,
+      transparent 0px, transparent 8px,
+      rgba(255,170,195,0.3) 8px, rgba(255,170,195,0.3) 11px,
+      transparent 11px, transparent 15px
+    ),
+    repeating-linear-gradient(
+      -70deg,
+      transparent 0px, transparent 9px,
+      rgba(245,150,180,0.25) 9px, rgba(245,150,180,0.25) 12px,
+      transparent 12px, transparent 16px
+    );
+}
+
+.decrement-button::after {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: 10px;
+  width: 18px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  transform: rotate(-25deg);
+  pointer-events: none;
 }
 
 .decrement-button:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: 
-    0 8px 16px rgba(176,138,147, 0.3),
-    inset 0 1px 0 rgba(255,255,255,0.5);
+  transform: translateY(-2px);
+  box-shadow:
+    0 10px 20px rgba(216,86,126,0.45),
+    inset 0 -6px 12px rgba(140,30,60,0.25),
+    inset 0 3px 6px rgba(255,255,255,0.1);
 }
 
 .decrement-button:active:not(:disabled) {
-  transform: scale(0.95);
+  transform: scale(0.93);
+  box-shadow:
+    0 3px 8px rgba(216,86,126,0.4),
+    inset 0 -6px 12px rgba(140,30,60,0.25),
+    inset 0 3px 6px rgba(255,255,255,0.1);
 }
 
 .decrement-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* Minus sign yarn tail for decrement */
+.yarn-tail-minus {
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  margin-top: -2px;
+  pointer-events: none;
+}
+
+.yarn-tail-minus-strand {
+  width: 28px;
+  height: 4px;
+  background: linear-gradient(90deg, #d4567e, #f7a8c4, #d4567e);
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(216,86,126,0.3);
+}
+
+.yarn-tail-minus-connect {
+  position: absolute;
+  right: -12px;
+  top: 0.5px;
+  width: 12px;
+  height: 3px;
+  background: linear-gradient(90deg, #d4567e, #b83a62);
+  border-radius: 1.5px;
 }
 
 .reset-button {
@@ -353,7 +433,7 @@ body {
   }
   
   .count-display {
-    font-size: 42px;
+    font-size: 60px;
   }
   
   .pin {

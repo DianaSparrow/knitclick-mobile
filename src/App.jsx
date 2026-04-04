@@ -110,6 +110,10 @@ const KnitClick = () => {
           disabled={count === 0}
         >
           -
+          <div className="yarn-tail-minus">
+            <div className="yarn-tail-minus-strand" />
+            <div className="yarn-tail-minus-connect" />
+          </div>
         </button>
 
         <button
