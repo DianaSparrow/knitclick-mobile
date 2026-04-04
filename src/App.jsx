@@ -89,16 +89,16 @@ const KnitClick = () => {
               />
             );
           })}
-          {/* Crank handle */}
-          <div className="handle-arm">
-            <div className="handle-knob" />
-          </div>
           <div
             className="count-display"
             style={{ transform: `rotate(${-rotation}deg)` }}
           >
             {count}
           </div>
+        </div>
+        {/* Crank handle - stationary, anchored to the side */}
+        <div className="handle-arm">
+          <div className="handle-knob" />
         </div>
       </main>
 

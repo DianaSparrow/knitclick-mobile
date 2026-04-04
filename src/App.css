@@ -90,10 +90,10 @@ body {
 .handle-arm {
   position: absolute;
   top: 50%;
-  right: -30px;
+  right: calc(50% - 140px);
   width: 40px;
   height: 8px;
-  margin-top: -4px;
+  margin-top: -24px;
   background: linear-gradient(to right, #d4b5bb, #e8a4b8);
   border-radius: 4px;
   z-index: 15;
