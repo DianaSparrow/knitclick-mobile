@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="g" cx="40%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="#c77dba"/>
+      <stop offset="50%" stop-color="#a8479e"/>
+      <stop offset="100%" stop-color="#6a1b6a"/>
+    </radialGradient>
+  </defs>
+  <circle cx="256" cy="256" r="240" fill="url(#g)"/>
+  <!-- Yarn wrap lines -->
+  <g stroke="rgba(255,255,255,0.15)" stroke-width="5" fill="none">
+    <ellipse cx="256" cy="256" rx="215" ry="108" transform="rotate(-25 256 256)"/>
+    <ellipse cx="256" cy="256" rx="200" ry="100" transform="rotate(30 256 256)"/>
+    <ellipse cx="256" cy="256" rx="190" ry="95" transform="rotate(-60 256 256)"/>
+    <ellipse cx="256" cy="256" rx="220" ry="112" transform="rotate(70 256 256)"/>
+    <ellipse cx="256" cy="256" rx="175" ry="85" transform="rotate(10 256 256)"/>
+    <ellipse cx="256" cy="256" rx="210" ry="105" transform="rotate(-45 256 256)"/>
+    <ellipse cx="256" cy="256" rx="195" ry="98" transform="rotate(50 256 256)"/>
+  </g>
+  <!-- Shine -->
+  <ellipse cx="192" cy="180" rx="48" ry="32" fill="rgba(255,255,255,0.2)" transform="rotate(-20 192 180)"/>
+</svg>
