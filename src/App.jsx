@@ -44,6 +44,16 @@ const KnitClick = () => {
 
   return (
     <div className="app">
+      {/* SVG filter for yarn-like fuzzy texture */}
+      <svg width="0" height="0" style={{ position: 'absolute' }}>
+        <defs>
+          <filter id="yarn-texture">
+            <feTurbulence type="turbulence" baseFrequency="0.05 0.08" numOctaves="4" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" />
+          </filter>
+        </defs>
+      </svg>
+
       {/* Header */}
       <header className="header">
         <h1 className="title">KnitClick</h1>

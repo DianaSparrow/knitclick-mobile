@@ -28,10 +28,36 @@ body {
 }
 
 .title {
-  font-size: 24px;
+  font-family: 'Dancing Script', 'Segoe Script', 'Brush Script MT', cursive;
+  font-size: 36px;
   font-weight: bold;
-  color: #b08a93;
   margin: 0;
+  background: linear-gradient(90deg, #8b2d8b, #a8479e, #c77dba, #a8479e, #8b2d8b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  filter: url(#yarn-texture);
+}
+
+/* Yarn-like rough edge effect via SVG filter */
+.title::after {
+  content: 'KnitClick';
+  position: absolute;
+  inset: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  background: linear-gradient(90deg, #8b2d8b, #a8479e, #c77dba, #a8479e, #8b2d8b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: blur(0.3px);
+  opacity: 0.5;
 }
 
 .counter-container {
