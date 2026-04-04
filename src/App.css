@@ -155,74 +155,131 @@ body {
   cursor: pointer;
   transition: all 0.2s;
   position: relative;
-  background:
-    /* Yarn strand lines wrapping around the ball */
-    repeating-conic-gradient(
-      from 0deg,
-      transparent 0deg, transparent 6deg,
-      rgba(255,255,255,0.12) 6deg, rgba(255,255,255,0.12) 8deg
-    ),
-    /* Base gradient for 3D ball shape */
-    radial-gradient(circle at 35% 35%, #c084fc, #9b59b6 40%, #7c3aed 75%, #5b21b6);
+  background: radial-gradient(circle at 38% 35%, #c77dba, #a8479e 35%, #8b2d8b 65%, #6a1b6a);
   box-shadow:
-    0 6px 16px rgba(124,58,237,0.4),
-    inset 0 -8px 16px rgba(91,33,182,0.3),
-    inset 0 4px 8px rgba(255,255,255,0.15);
+    0 6px 16px rgba(138,45,139,0.4),
+    inset 0 -6px 12px rgba(80,15,80,0.3),
+    inset 0 3px 6px rgba(255,255,255,0.1);
   color: transparent;
   font-size: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
-/* Yarn texture wrap lines */
+/* Yarn wrap strands - thick overlapping lines at different angles */
 .increment-button::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: 50%;
+  overflow: hidden;
   background:
+    /* Diagonal strands going upper-left to lower-right */
     repeating-linear-gradient(
-      -30deg,
-      transparent,
-      transparent 3px,
-      rgba(255,255,255,0.08) 3px,
-      rgba(255,255,255,0.08) 4.5px
+      -25deg,
+      transparent 0px, transparent 5px,
+      rgba(180,100,170,0.5) 5px, rgba(180,100,170,0.5) 8px,
+      transparent 8px, transparent 10px
     ),
+    /* Strands going the other diagonal */
     repeating-linear-gradient(
-      60deg,
-      transparent,
-      transparent 4px,
-      rgba(200,160,252,0.15) 4px,
-      rgba(200,160,252,0.15) 5.5px
+      55deg,
+      transparent 0px, transparent 7px,
+      rgba(150,70,150,0.4) 7px, rgba(150,70,150,0.4) 10px,
+      transparent 10px, transparent 13px
+    ),
+    /* Near-horizontal wraps */
+    repeating-linear-gradient(
+      10deg,
+      transparent 0px, transparent 8px,
+      rgba(190,120,180,0.35) 8px, rgba(190,120,180,0.35) 11px,
+      transparent 11px, transparent 15px
+    ),
+    /* Steep wraps */
+    repeating-linear-gradient(
+      -70deg,
+      transparent 0px, transparent 9px,
+      rgba(160,80,155,0.3) 9px, rgba(160,80,155,0.3) 12px,
+      transparent 12px, transparent 16px
     );
 }
 
-/* Highlight shine */
+/* Highlight/shine on the ball */
 .increment-button::after {
   content: '';
   position: absolute;
-  top: 10px;
-  left: 14px;
-  width: 20px;
-  height: 14px;
+  top: 8px;
+  left: 12px;
+  width: 22px;
+  height: 16px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.3);
-  transform: rotate(-30deg);
+  background: rgba(255,255,255,0.2);
+  transform: rotate(-25deg);
+  pointer-events: none;
 }
 
 .increment-button:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 10px 20px rgba(124,58,237,0.45),
-    inset 0 -8px 16px rgba(91,33,182,0.3),
-    inset 0 4px 8px rgba(255,255,255,0.15);
+    0 10px 20px rgba(138,45,139,0.45),
+    inset 0 -6px 12px rgba(80,15,80,0.3),
+    inset 0 3px 6px rgba(255,255,255,0.1);
 }
 
 .increment-button:active {
   transform: scale(0.93);
   box-shadow:
-    0 3px 8px rgba(124,58,237,0.4),
-    inset 0 -8px 16px rgba(91,33,182,0.3),
-    inset 0 4px 8px rgba(255,255,255,0.15);
+    0 3px 8px rgba(138,45,139,0.4),
+    inset 0 -6px 12px rgba(80,15,80,0.3),
+    inset 0 3px 6px rgba(255,255,255,0.1);
+}
+
+/* Yarn tail that forms a + sign */
+.yarn-tail {
+  position: absolute;
+  right: -35px;
+  top: 50%;
+  margin-top: -18px;
+  width: 36px;
+  height: 36px;
+  pointer-events: none;
+}
+
+.yarn-tail-strand {
+  position: absolute;
+  background: #a8479e;
+  border-radius: 2px;
+}
+
+/* Horizontal bar of the + */
+.yarn-tail-h {
+  width: 28px;
+  height: 4px;
+  top: 16px;
+  left: 4px;
+  background: linear-gradient(90deg, #a8479e, #c77dba, #a8479e);
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(138,45,139,0.3);
+}
+
+/* Vertical bar of the + */
+.yarn-tail-v {
+  width: 4px;
+  height: 28px;
+  top: 4px;
+  left: 16px;
+  background: linear-gradient(180deg, #a8479e, #c77dba, #a8479e);
+  border-radius: 2px;
+  box-shadow: 1px 0 2px rgba(138,45,139,0.3);
+}
+
+/* Little connecting strand from ball to + */
+.yarn-tail-connect {
+  width: 12px;
+  height: 3px;
+  top: 17px;
+  left: -8px;
+  background: linear-gradient(90deg, #8b2d8b, #a8479e);
+  border-radius: 1.5px;
 }
 
 .decrement-button {

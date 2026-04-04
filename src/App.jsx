@@ -117,6 +117,11 @@ const KnitClick = () => {
           onClick={incrementCount}
         >
           +
+          <div className="yarn-tail">
+            <div className="yarn-tail-strand yarn-tail-connect" />
+            <div className="yarn-tail-strand yarn-tail-h" />
+            <div className="yarn-tail-strand yarn-tail-v" />
+          </div>
         </button>
       </div>
 
