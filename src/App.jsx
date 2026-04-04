@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
+
+const CONFETTI_PIECES = 20;
+const CONFETTI_COLORS = ['#ff6b9d', '#c44569', '#a855f7', '#f472b6', '#c084fc', '#e879a8', '#9b59b6', '#f8b500'];
+const CONFETTI_SHAPES = ['circle', 'heart', 'star'];
 
 const KnitClick = () => {
   const [count, setCount] = useState(0);
   const [rotation, setRotation] = useState(0);
+  const [confetti, setConfetti] = useState([]);
 
   // Load saved count on app start
   useEffect(() => {
@@ -18,6 +23,20 @@ const KnitClick = () => {
     localStorage.setItem('knitClickCount', count.toString());
   }, [count]);
 
+  const triggerConfetti = useCallback(() => {
+    const pieces = Array.from({ length: CONFETTI_PIECES }, (_, i) => ({
+      id: Date.now() + i,
+      color: CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)],
+      shape: CONFETTI_SHAPES[Math.floor(Math.random() * CONFETTI_SHAPES.length)],
+      angle: (Math.random() * 360) * (Math.PI / 180),
+      distance: 40 + Math.random() * 80,
+      scale: 0.5 + Math.random() * 0.8,
+      rotation: Math.random() * 360,
+    }));
+    setConfetti(pieces);
+    setTimeout(() => setConfetti([]), 1000);
+  }, []);
+
   const incrementCount = () => {
     // Vibrate if supported
     if (navigator.vibrate) {
@@ -25,7 +44,13 @@ const KnitClick = () => {
     }
 
     // Update count
-    setCount(prevCount => prevCount + 1);
+    setCount(prevCount => {
+      const next = prevCount + 1;
+      if (next > 0 && next % 10 === 0) {
+        triggerConfetti();
+      }
+      return next;
+    });
 
     // Spin animation - full revolution per count
     setRotation(prevRotation => prevRotation + 360);
@@ -104,6 +129,24 @@ const KnitClick = () => {
             style={{ transform: `rotate(${-rotation}deg)` }}
           >
             {count}
+            {confetti.length > 0 && (
+              <div className="confetti-container">
+                {confetti.map(piece => (
+                  <div
+                    key={piece.id}
+                    className={`confetti-piece confetti-${piece.shape}`}
+                    style={{
+                      '--x': `${Math.cos(piece.angle) * piece.distance}px`,
+                      '--y': `${Math.sin(piece.angle) * piece.distance}px`,
+                      '--r': `${piece.rotation}deg`,
+                      '--scale': piece.scale,
+                      backgroundColor: piece.shape === 'circle' ? piece.color : 'transparent',
+                      color: piece.color,
+                    }}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
         {/* Crank handle - stationary, anchored to the side */}

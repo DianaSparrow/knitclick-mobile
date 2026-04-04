@@ -153,6 +153,62 @@ body {
   background: rgba(255,255,255,0.4);
 }
 
+/* Confetti burst */
+.confetti-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  animation: confetti-burst 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.confetti-circle {
+  border-radius: 50%;
+}
+
+.confetti-heart::before {
+  content: '\2665';
+  font-size: 12px;
+  position: absolute;
+  top: -6px;
+  left: -3px;
+}
+
+.confetti-star::before {
+  content: '\2605';
+  font-size: 12px;
+  position: absolute;
+  top: -6px;
+  left: -3px;
+}
+
+@keyframes confetti-burst {
+  0% {
+    transform: translate(0, 0) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+    transform: translate(
+      calc(var(--x) * 0.3),
+      calc(var(--y) * 0.3)
+    ) scale(var(--scale)) rotate(calc(var(--r) * 0.3));
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(0) rotate(var(--r));
+    opacity: 0;
+  }
+}
+
 .count-display {
   font-size: 72px;
   font-weight: bold;
