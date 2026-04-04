@@ -84,17 +84,17 @@ body {
   transition: transform 0.3s ease-out;
 }
 
-.white-pin {
+.pin {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 80px);
-  width: 6px;
-  height: 15px;
-  background: #ffffff;
-  border: 1px solid #b08a93;
+  width: 4px;
+  height: 10px;
+  margin-left: -2px;
+  margin-top: -5px;
   border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(176,138,147, 0.4);
+  border: 1px solid;
+  transform-origin: center center;
   z-index: 10;
 }
 
