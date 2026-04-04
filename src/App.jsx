@@ -58,9 +58,24 @@ const KnitClick = () => {
         >
           {/* Pin markers on the circle edge */}
           {[...Array(48)].map((_, i) => {
-            const angle = (i * 360) / 48;
-            const colors = ['#ffffff', '#ff6b9d', '#c44569', '#f8b500', '#00d2ff', '#a29bfe'];
-            const color = colors[i % colors.length];
+            // Offset so pin 0 (white marker) sits at the bottom (180°)
+            const angle = (i * 360) / 48 + 180;
+            // Pin 0 is white (marker pin), rest are shades of pink/purple
+            const pinkPurpleShades = [
+              '#ff6b9d', '#e84393', '#d63384', '#c44569',
+              '#b83b8b', '#a855f7', '#9b59b6', '#8b5cf6',
+              '#7c3aed', '#c084fc', '#e879a8', '#f472b6',
+              '#db7093', '#d946ef', '#a78bfa', '#e293b3',
+              '#ba68c8', '#ce7bb5', '#d4a0c7', '#b56eaa',
+              '#e06b9f', '#c76dba', '#9f7aea', '#d471a8',
+              '#b967d8', '#e48db5', '#a964c9', '#cc70a3',
+              '#d584c6', '#b07cc8', '#e57baf', '#c165b0',
+              '#a670d4', '#da6ba5', '#be78c4', '#cb6dab',
+              '#9c6fd0', '#e680b8', '#b560ae', '#d077bd',
+              '#a36ac8', '#dd73a8', '#c46db5', '#9975cc',
+              '#e185b2', '#b86cb8', '#cd72b0', '#a06dc6'
+            ];
+            const color = i === 0 ? '#ffffff' : pinkPurpleShades[(i - 1) % pinkPurpleShades.length];
 
             return (
               <div
