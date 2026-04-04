@@ -44,25 +44,19 @@ body {
   position: relative;
 }
 
-.pins-container {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  pointer-events: none;
-}
-
 .pin {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 4px;
-  height: 10px;
-  margin-left: -2px;
-  margin-top: -5px;
-  border-radius: 2px;
+  width: 6px;
+  height: 12px;
+  margin-left: -3px;
+  margin-top: -6px;
+  border-radius: 3px;
   border: 1px solid;
   transform-origin: center center;
   z-index: 10;
+  pointer-events: none;
 }
 
 .counter-circle {
@@ -217,12 +211,7 @@ body {
     font-size: 42px;
   }
   
-  .pins-container {
-    width: 180px;
-    height: 180px;
-  }
-  
   .pin {
-    transform: rotate(var(--angle)) translateY(-96px) !important;
+    transform: rotate(var(--angle)) translateY(-80px) !important;
   }
 }

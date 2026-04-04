@@ -51,33 +51,30 @@ const KnitClick = () => {
 
       {/* Counter Display */}
       <main className="counter-container">
-        {/* Pins container - stationary */}
-        <div className="pins-container">
+        {/* Spinning circle with pins */}
+        <div
+          className="counter-circle"
+          style={{ transform: `rotate(${rotation}deg)` }}
+        >
+          {/* Pin markers on the circle edge */}
           {[...Array(48)].map((_, i) => {
             const angle = (i * 360) / 48;
             const colors = ['#ffffff', '#ff6b9d', '#c44569', '#f8b500', '#00d2ff', '#a29bfe'];
             const color = colors[i % colors.length];
-            
+
             return (
               <div
                 key={i}
                 className="pin"
                 style={{
-                  transform: `rotate(${angle}deg) translateY(-106px)`,
+                  transform: `rotate(${angle}deg) translateY(-90px)`,
                   backgroundColor: color,
                   borderColor: color === '#ffffff' ? '#b08a93' : color
                 }}
               />
             );
           })}
-        </div>
-        
-        {/* Spinning circle */}
-        <div 
-          className="counter-circle"
-          style={{ transform: `rotate(${rotation}deg)` }}
-        >
-          <div 
+          <div
             className="count-display"
             style={{ transform: `rotate(${-rotation}deg)` }}
           >
