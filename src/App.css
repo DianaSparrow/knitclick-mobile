@@ -518,7 +518,4 @@ body {
     font-size: 60px;
   }
   
-  .pin {
-    transform: rotate(var(--angle)) translateY(-80px) !important;
-  }
 }
