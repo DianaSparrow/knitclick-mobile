@@ -1,0 +1,15 @@
+{
+  "appId": "com.dianasparrow.knitclick",
+  "appName": "KnitClick",
+  "webDir": "dist",
+  "android": {
+    "backgroundColor": "#f5f5f5"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "backgroundColor": "#f5f5f5",
+      "launchAutoHide": true,
+      "launchShowDuration": 1000
+    }
+  }
+}
